@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMain.master.cs" Inherits="AccessControlTool.SiteMain" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Content/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/images/logo.png" />
+    <title><%: Page.Title %> - Access Control Tool</title>
+
+    <link href="Content/css/dashboard.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="page">
+            <div class="page-main">
+                <div class="header py-4">
+                    <div class="container">
+                        <div class="d-flex">
+                            <a class="header-brand" href="/">
+                                <img src="/Content/images/logo_2.jpg" class="header-brand-img" alt="tabler logo"> ASP.NET Membership Management Tool
+                            </a>
+                            <div class="d-flex order-lg-2 ml-auto">
+                                <label class="form-label">Server:</label>
+                                <div class="nav-item d-none d-md-flex">
+                                    <asp:DropDownList ID="ddlServers" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlServers_SelectedIndexChanged"></asp:DropDownList>
+                                </div>
+                                <a href="#" class="nav-link pr-0 leading-none">
+                                    <span class="avatar bg-blue-light text-gray-dark"><asp:Label ID="lblInitials" runat="server"></asp:Label></span>
+                                    <span class="ml-2 d-none d-lg-block">
+                                        <span class="text-default"><asp:Label ID="lblUserFullName" runat="server">Suvash Shah</asp:Label></span>
+                                    </span>
+                                </a>
+                                <div class="nav-item d-none d-md-flex">
+                                    <a href="#" class="btn btn-sm btn-outline-danger" target="_blank"><i class="fe fe-power"></i>Exit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <%--<div class="col-lg-3 ml-auto">
+                                <div class="input-icon my-3 my-lg-0">
+                                    <input type="search" class="form-control header-search" placeholder="Search User" tabindex="1">
+                                    <div class="input-icon-addon">
+                                        <i class="fe fe-search"></i>
+                                    </div>
+                                </div>
+                            </div>--%>
+                            <div class="col-lg order-lg-first">
+                                <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link" id="navHome" runat="server"><i class="fe fe-home"></i>Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/Users/Default.aspx" class="nav-link" id="navUsers" runat="server"><i class="fe fe-users"></i>Users</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/Roles/Default.aspx" class="nav-link" id="navRoles" runat="server"><i class="fe fe-check-square"></i>Roles</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/Applications/Default.aspx" class="nav-link" id="navApplications" runat="server"><i class="fe fe-server"></i>Applications</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">                
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+    <script src="/Content/js/require.min.js"></script>
+    <script>
+        requirejs.config({
+            baseUrl: '.'
+        });
+    </script>
+    <script src="/Content/js/dashboard.js"></script>
+    <script type="text/javascript">
+        require(['jquery'], function ($) {
+            $(document).ready(function () {
+                $(".menu-item a").removeClass("active");
+                $(this).addClass('active');
+            });
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderScript" runat="server"></asp:ContentPlaceHolder>
+
+</body>
+</html>
