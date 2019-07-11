@@ -74,10 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Applications\Default.aspx" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\dashboard.css" />
     <Content Include="Content\fonts\feather\feather-webfont.svg" />
     <Content Include="Content\images\county_logo.png" />
@@ -101,19 +97,10 @@
     <Content Include="Content\js\vendors\notify.min.js" />
     <Content Include="Content\js\vendors\selectize.min.js" />
     <Content Include="Default.aspx" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Roles\Default.aspx" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
-    <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Roles\Details.aspx" />
     <Content Include="Roles\NewRole.aspx" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-1.9.0.js" />
-    <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Users\Default.aspx" />
     <Content Include="Users\Details.aspx" />
     <Content Include="Users\NewUser.aspx" />
@@ -194,7 +181,6 @@
     <Content Include="Content\fonts\feather\feather-webfont.woff" />
     <None Include="packages.config" />
     <Content Include="SiteMain.Master" />
-    <Content Include="Scripts\jquery-1.9.0.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
