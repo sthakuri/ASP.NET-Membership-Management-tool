@@ -20,7 +20,7 @@ namespace AccessControlTool.Roles
         {
             try
             {
-                RoleService roleService = new RoleService(App_Code.AppConfig.CurrentDBServer);
+                RoleService roleService = new RoleService(App_Code.AppConfig.CurrentDBServerConfigName);
                 var roles = roleService.GetRoles();
                 rptRoles.DataSource = roles;
                 rptRoles.DataBind();

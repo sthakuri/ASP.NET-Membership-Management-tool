@@ -10,12 +10,12 @@ namespace AccessControlTool
 {
     public partial class Default : System.Web.UI.Page
     {
-        private string _ServerConString = "";
+        private string _ServerConStringName = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                _ServerConString = App_Code.AppConfig.CurrentDBServer;
+                _ServerConStringName = App_Code.AppConfig.CurrentDBServerConfigName;
                 LoadSummary();
             }
         }
@@ -25,7 +25,7 @@ namespace AccessControlTool
             //var roles= System.Web.Security.Roles.Providers["Agdf"].GetAllRoles();
             try
             {
-                ApplicationService applicationService = new ApplicationService(_ServerConString);
+                ApplicationService applicationService = new ApplicationService(_ServerConStringName);
                 var summary = applicationService.GetSummary();
                 if (summary != null)
                 {

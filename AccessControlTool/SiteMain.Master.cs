@@ -47,16 +47,16 @@ namespace AccessControlTool
             ddlServers.DataTextField = "Key";
             ddlServers.DataBind();
 
-            if (!string.IsNullOrEmpty(App_Code.AppConfig.CurrentDBServer))
-                ddlServers.SelectedValue = App_Code.AppConfig.CurrentDBServer;
+            if (!string.IsNullOrEmpty(App_Code.AppConfig.CurrentDBServerConfigName))
+                ddlServers.SelectedValue = App_Code.AppConfig.CurrentDBServerConfigName;
             else
-                App_Code.AppConfig.CurrentDBServer = _ConnectionStringDictionary.FirstOrDefault().Key;
+                App_Code.AppConfig.CurrentDBServerConfigName = _ConnectionStringDictionary.FirstOrDefault().Key;
 
         }
 
         protected void ddlServers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            App_Code.AppConfig.CurrentDBServer = ddlServers.SelectedItem.Text;
+            App_Code.AppConfig.CurrentDBServerConfigName = ddlServers.SelectedItem.Text;
             Response.Redirect(Request.RawUrl, true);
         }
     }

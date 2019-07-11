@@ -22,7 +22,7 @@ namespace AccessControlTool.Users
         {
             try
             {
-                UserService userService = new UserService(App_Code.AppConfig.CurrentDBServer);
+                UserService userService = new UserService(App_Code.AppConfig.CurrentDBServerConfigName);
                 return userService.GetUsers();
             }
             catch (Exception ex)

@@ -13,14 +13,14 @@ namespace AccessControlTool.Users
                 var userId = Request.QueryString["UserId"];
                 if (!string.IsNullOrEmpty(userId))
                 {
-                    ApplicationService applicationService = new ApplicationService(App_Code.AppConfig.CurrentDBServer);
+                    ApplicationService applicationService = new ApplicationService(App_Code.AppConfig.CurrentDBServerConfigName);
                     var apps = applicationService.GetApplications();
                     ddlApplications.DataSource = apps;
                     ddlApplications.DataValueField = "ApplicationID";
                     ddlApplications.DataTextField = "ApplicationName";
                     ddlApplications.DataBind();
 
-                    UserService userService = new UserService(App_Code.AppConfig.CurrentDBServer);
+                    UserService userService = new UserService(App_Code.AppConfig.CurrentDBServerConfigName);
                     Guid _userId = new Guid();
                     if (Guid.TryParse(userId, out _userId))
                     {
@@ -33,7 +33,7 @@ namespace AccessControlTool.Users
                             txtDateCreated.Text = user.CreatedDate.ToString("MM/dd/yyyy");
                             ddlApplications.SelectedValue = user.ApplicationID.ToString();
 
-                            RoleService roleService = new RoleService(App_Code.AppConfig.CurrentDBServer);
+                            RoleService roleService = new RoleService(App_Code.AppConfig.CurrentDBServerConfigName);
 
                             var userRoles = roleService.GetRolesByUser(user.UserID);
                             foreach (var item in userRoles)
@@ -49,7 +49,7 @@ namespace AccessControlTool.Users
         }
         private void BindRoles(Guid ApplicationID)
         {
-            RoleService roleService = new RoleService(App_Code.AppConfig.CurrentDBServer);
+            RoleService roleService = new RoleService(App_Code.AppConfig.CurrentDBServerConfigName);
             var roles = roleService.GetRoles(ApplicationID);
             rptRoles.DataSource = roles;
             rptRoles.DataBind();
@@ -60,7 +60,7 @@ namespace AccessControlTool.Users
         {
             if (!string.IsNullOrEmpty(userId) && !string.IsNullOrEmpty(roleId))
             {
-                UserService userService = new UserService(App_Code.AppConfig.CurrentDBServer);
+                UserService userService = new UserService(App_Code.AppConfig.CurrentDBServerConfigName);
 
                 return userService.AssignRole(Guid.Parse(userId), Guid.Parse(roleId));
             }
@@ -73,7 +73,7 @@ namespace AccessControlTool.Users
         {
             if (!string.IsNullOrEmpty(userId) && !string.IsNullOrEmpty(roleId))
             {
-                UserService userService = new UserService(App_Code.AppConfig.CurrentDBServer);
+                UserService userService = new UserService(App_Code.AppConfig.CurrentDBServerConfigName);
 
                 return userService.RevokeRole(Guid.Parse(userId), Guid.Parse(roleId));
             }

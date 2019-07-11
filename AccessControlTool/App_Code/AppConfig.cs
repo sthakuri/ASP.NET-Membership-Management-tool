@@ -2,10 +2,10 @@
 {
     public class AppConfig
     {
-        public static string CurrentDBServer
+        public static string CurrentDBServerConfigName
         {
-            get { return string.Format("{0}",System.Web.HttpContext.Current.Session["server"]); }
-            set { System.Web.HttpContext.Current.Session["server"] = value; }
+            get { return string.Format("{0}",System.Web.HttpContext.Current.Session["connectionStringName"]); }
+            set { System.Web.HttpContext.Current.Session["connectionStringName"] = value; }
         }
     }
 }
